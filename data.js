@@ -300,6 +300,7 @@ const customers = [
 
 const rowsPerPage = 8;
 let currentPage = 1;
+let filteredCustomers = customers; // Данные после фильтрации
 
 function displayData(page) {
 	const tableBody = $('.customers-list tbody');
@@ -308,8 +309,8 @@ function displayData(page) {
 	const startIdx = (page - 1) * rowsPerPage;
 	const endIdx = startIdx + rowsPerPage;
 
-	for (let i = startIdx; i < endIdx && i < customers.length; i++) {
-		const customer = customers[i];
+	for (let i = startIdx; i < endIdx && i < filteredCustomers.length; i++) {
+		const customer = filteredCustomers[i];
 		const statusClass = customer.isActive ? 'active-status' : '';
 
 		const row = `<tr>
@@ -329,9 +330,10 @@ function displayData(page) {
 	}
 
 	$('.pagination-info').text(
-		`Showing data ${startIdx + 1} to ${Math.min(endIdx, customers.length)} of ${
-			customers.length
-		} entries`
+		`Showing data ${startIdx + 1} to ${Math.min(
+			endIdx,
+			filteredCustomers.length
+		)} of ${customers.length} entries`
 	);
 }
 
@@ -372,6 +374,8 @@ $(document).ready(function () {
 		event.preventDefault();
 		let currentStage = $(this).text();
 
+		const totalPages = Math.ceil(filteredCustomers.length / rowsPerPage);
+
 		if (currentStage === '<') {
 			currentPage = Math.max(1, currentPage - 1);
 		} else if (currentStage === '>') {
@@ -381,5 +385,21 @@ $(document).ready(function () {
 		}
 		displayData(currentPage);
 		updatePagination(totalPages);
+	});
+
+	$('.search-block input').on('input', function () {
+		const searchTerm = $(this).val().toLowerCase();
+		filteredCustomers = customers.filter(customer => {
+			const lowerCaseName = customer.name.toLowerCase();
+			const lowerCaseCompany = customer.company.toLowerCase();
+			return (
+				lowerCaseName.includes(searchTerm) ||
+				lowerCaseCompany.includes(searchTerm)
+			);
+		});
+		const totalPages = Math.ceil(filteredCustomers.length / rowsPerPage);
+		currentPage = 1;
+		updatePagination(totalPages);
+		displayData(currentPage);
 	});
 });
