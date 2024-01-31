@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/assets/sidebar/setting.svg">
   <link rel="stylesheet" href="/styles/normalize.css">
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +16,7 @@
 </head>
 
 <body>
-  <header class="header"></header>
-  <div class="main-container">
+  <div class="container">
     <aside class="sidebar">
       <a href="/" class="sidebar__logo">
         <img src="/assets/sidebar/setting.svg" alt="Setting" />
@@ -28,42 +28,42 @@
             <a class="sidebar__item" href="/dashboard">
               <img src="/assets/sidebar/key-square.svg" alt="Key" />
               <div class="sidebar__content">Dashboard</div>
-              <img src="/assets/arrow-right.svg" alt="Arrow Right" />
+              <img class="arrow-right" src="/assets/arrow-right.svg" alt="Arrow Right" />
             </a>
           </li>
           <li>
             <a class="sidebar__item" href="/product">
               <img src="/assets/sidebar/3d-square.svg" alt="3d square" />
               <div class="sidebar__content">Product</div>
-              <img src="/assets/arrow-right.svg" alt="Arrow Right" />
+              <img class="arrow-right" src="/assets/arrow-right.svg" alt="Arrow Right" />
             </a>
           </li>
           <li>
             <a class="sidebar__item active-item" href="/customers">
               <img src="/assets/sidebar/user-square.svg" alt="User in square" />
               <div class="sidebar__content">Customers</div>
-              <img src="/assets/sidebar/arrow-right-light.svg" alt="Arrow Right" />
+              <img class="arrow-right" src="/assets/sidebar/arrow-right-light.svg" alt="Arrow Right" />
             </a>
           </li>
           <li>
             <a class="sidebar__item" href="/income">
               <img src="/assets/sidebar/wallet-money.svg" alt="Wallet Money" />
               <div class="sidebar__content">Income</div>
-              <img src="/assets/arrow-right.svg" alt="Arrow Right" />
+              <img class="arrow-right" src="/assets/arrow-right.svg" alt="Arrow Right" />
             </a>
           </li>
           <li>
             <a class="sidebar__item" href="/promote">
               <img src="/assets/sidebar/discount-shape.svg" alt="Discount-shape" />
               <div class="sidebar__content">Promote</div>
-              <img src="/assets/arrow-right.svg" alt="Arrow Right" />
+              <img class="arrow-right" src="/assets/arrow-right.svg" alt="Arrow Right" />
             </a>
           </li>
           <li>
             <a class="sidebar__item" href="/help">
               <img src="/assets/sidebar/message-question.svg" alt="Message question" />
               <div class="sidebar__content">Help</div>
-              <img src="/assets/arrow-right.svg" alt="Arrow Right" />
+              <img class="arrow-right" src="/assets/arrow-right.svg" alt="Arrow Right" />
             </a>
           </li>
         </ul>
@@ -92,20 +92,22 @@
             </div>
           </div>
 
-          <table class="customers-list">
-            <thead>
-              <tr>
-                <th>Customer Name</th>
-                <th>Company</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-                <th>Country</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+          <div class="table-container">
+            <table class="customers-list">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Company</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Country</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
 
           <div class="pagination-container">
             <div class="pagination-info"></div>

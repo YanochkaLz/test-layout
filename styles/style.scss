@@ -14,24 +14,32 @@ html {
 
 body {
   background-color: var(--bg-color);
+  position: relative;
 }
 
-.main-container {
+
+.container {
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
   display: flex;
 
   .sidebar {
     background-color: var(--white-color);
-    width: fit-content;
+    z-index: 5;
     display: flex;
     flex-direction: column;
-    padding: 36px 28px 78px;
     min-height: 100vh;
-    height: 100%;
+    width: 25%;
+    max-width: 450px;
+    padding: 36px 28px 78px;
     box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.50);
 
     &__logo {
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
       gap: 8px;
       text-decoration: none;
       color: var(--black-color);
@@ -48,6 +56,12 @@ body {
         font-size: 10px;
         font-weight: 400;
         margin-left: 4px;
+      }
+
+      @media (max-width: 750px) {
+        & {
+          display: none;
+        }
       }
     }
 
@@ -79,11 +93,23 @@ body {
         background-color: var(--accent-color);
         color: var(--white-color);
       }
+
+      @media (max-width: 750px) {
+        .arrow-right {
+          display: none;
+        }
+      }
     }
 
     &__content {
       flex: 1;
       padding-inline: 14px;
+
+      @media (max-width: 750px) {
+        & {
+          display: none;
+        }
+      }
     }
 
     &__user-container {
@@ -111,23 +137,63 @@ body {
         letter-spacing: 0.12px;
         line-height: normal;
       }
+
+      @media (max-width: 750px) {
+        & {
+          display: none;
+        }
+      }
+    }
+
+    &:hover .sidebar__content {
+      display: flex;
+    }
+
+    &:hover {
+      width: fit-content;
+    }
+
+    @media (max-width: 900px) {
+      & {
+        padding: 18px 14px 39px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      & {
+        width: 75px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
     }
   }
 
   .main-content {
     padding: 41px 95px 258px 71px;
-    flex: 1;
+    width: 75%;
 
     &__title {
       margin: 0;
       margin-bottom: 51px;
+
+      @media (max-width: 1000px) {
+        & {
+          text-align: center;
+        }
+      }
     }
 
     .customers {
+
       &-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        white-space: nowrap;
+        flex-wrap: wrap;
+        gap: 2rem;
 
         &__title {
           margin: 0;
@@ -170,15 +236,33 @@ body {
         }
       }
 
+      .table-container {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--accent-color)
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: var(--grey-color);
+        }
+      }
+
       &-list {
-        border-collapse: collapse;
-        width: 100%;
         margin-top: 40px;
+        width: 100%;
 
         th,
         td {
           text-align: left;
           border-bottom: 1px solid #EEE;
+          white-space: nowrap;
         }
 
         td {
@@ -217,6 +301,8 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
         margin-top: 30px;
         margin-right: 40px;
 
@@ -232,6 +318,7 @@ body {
           display: flex;
           gap: 12px;
           align-items: center;
+          flex-wrap: wrap;
 
           .page-link {
             border-radius: 4px;
@@ -255,6 +342,19 @@ body {
         }
       }
     }
+
+    @media (max-width: 1000px) {
+      & {
+        padding-inline: 30px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      & {
+        width: 100%;
+        padding-left: 85px;
+      }
+    }
   }
 }
 
@@ -263,4 +363,10 @@ body {
   filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.50));
   padding: 30px 32px 40px 38px;
   border-radius: 30px;
+
+  @media (max-width: 900px) {
+    & {
+      padding: 15px 16px 20px 19px;
+    }
+  }
 }
