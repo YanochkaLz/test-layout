@@ -127,12 +127,6 @@ body {
     display: none;
   }
 }
-.container .sidebar:hover .sidebar__content {
-  display: flex;
-}
-.container .sidebar:hover {
-  width: fit-content;
-}
 @media (max-width: 900px) {
   .container .sidebar {
     padding: 18px 14px 39px;
@@ -145,6 +139,12 @@ body {
     top: 0;
     left: 0;
     height: 100%;
+  }
+  .container .sidebar:hover .sidebar__content {
+    display: flex;
+  }
+  .container .sidebar:hover {
+    width: fit-content;
   }
 }
 .container .main-content {

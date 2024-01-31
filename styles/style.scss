@@ -145,14 +145,6 @@ body {
       }
     }
 
-    &:hover .sidebar__content {
-      display: flex;
-    }
-
-    &:hover {
-      width: fit-content;
-    }
-
     @media (max-width: 900px) {
       & {
         padding: 18px 14px 39px;
@@ -166,6 +158,14 @@ body {
         top: 0;
         left: 0;
         height: 100%;
+      }
+
+      &:hover .sidebar__content {
+        display: flex;
+      }
+
+      &:hover {
+        width: fit-content;
       }
     }
   }
